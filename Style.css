@@ -1,0 +1,325 @@
+/* 
+Author: Tess Burke
+Date: 1 May 2025
+Version: 1
+*/
+
+:root {
+  --main: #377d71;
+  --accent: #e6d76a;
+  --bg: #f6f8fa;
+  --text: #263238;
+  --white: #fff;
+  --header-radius: 28px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* --- Header --- */
+header {
+  background: #377d71;
+  color: #fff;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 2px 12px #377d7114;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.1rem 2rem;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-decoration: none;
+}
+
+.site-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #fff;
+}
+
+.brand-name {
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+nav {
+  position: relative;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  font-weight: 500;
+  padding: 0.5em 1.2em;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: background 0.18s, color 0.18s;
+}
+
+nav a.active,
+nav a:hover {
+  background: #fff;
+  color: #377d71;
+}
+
+.nav-toggle,
+.nav-toggle-label {
+  display: none;
+}
+
+/* Hamburger for mobile */
+@media (max-width: 750px) {
+  .nav-container {
+    flex-direction: row;
+    padding: 1rem 4vw;
+  }
+  nav ul {
+    position: absolute;
+    top: 54px;
+    right: 0;
+    flex-direction: column;
+    background: #377d71;
+    width: 170px;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 18px #26323824;
+    display: none;
+    z-index: 99;
+    gap: 0;
+  }
+  nav ul li {
+    width: 100%;
+    border-bottom: 1px solid #377d7140;
+  }
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+  .nav-toggle:checked + .nav-toggle-label + ul {
+    display: flex;
+  }
+  .nav-toggle-label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .nav-toggle-label span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.2s;
+  }
+}
+
+/* Hide hamburger & show normal nav on desktop */
+@media (min-width: 751px) {
+  nav ul {
+    display: flex !important;
+    position: static;
+    background: none;
+    width: auto;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .nav-toggle-label {
+    display: none !important;
+  }
+}
+
+/* --- Hero Section --- */
+.hero {
+  padding: 0 0 2.3rem 0;
+  background: #fff;
+  text-align: center;
+  border-radius: 22px;
+  box-shadow: 0 2px 24px #377d7112;
+  margin-bottom: 2rem;
+}
+.banner-img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 0 0 22px 22px;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 2px 14px #377d7114;
+}
+.hero h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--main);
+}
+.hero p {
+  font-size: 1.22rem;
+  margin-bottom: 1.6rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-main {
+  background: var(--main);
+  color: var(--white);
+  padding: 0.85em 2.2em;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: background 0.2s;
+  box-shadow: 0 2px 12px #377d7111;
+  display: inline-block;
+}
+.btn-main:hover { background: #2e6c5e; }
+
+/* --- Features Section --- */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.1rem;
+  justify-content: center;
+  margin: 2.5rem 0;
+}
+.feature-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 18px #377d7115;
+  padding: 2.2rem 1.5rem;
+  flex: 1 1 270px;
+  max-width: 350px;
+  text-align: center;
+  transition: box-shadow 0.18s;
+}
+.feature-card:hover {
+  box-shadow: 0 6px 28px #377d7125;
+  transform: translateY(-4px) scale(1.03);
+}
+.feature-img {
+  width: 100%;
+  max-width: 150px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 13px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 1px 7px #e6d76a33;
+}
+.feature-card h3 {
+  margin-top: 0;
+  color: var(--main);
+  font-size: 1.27rem;
+}
+
+/* --- Footer --- */
+footer {
+  background: var(--main);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 16px 16px 0 0;
+  margin-top: 2.5rem;
+  font-size: 1rem;
+}
+
+.container {
+  width: 94%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+  .nav-container {
+    padding: 1rem 4vw;
+  }
+  header h1 {
+    font-size: 1.3rem;
+  }
+  .site-logo {
+    width: 36px;
+    height: 36px;
+  }
+  .features { gap: 1.2rem; }
+}
+
+@media (max-width: 700px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2vw;
+    gap: 0.7rem;
+  }
+  nav {
+    width: 100%;
+  }
+  .branding {
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 0.6rem;
+  }
+  nav ul {
+    flex-direction: column;
+    background: var(--main);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 62px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 12px 24px #377d7111;
+    display: none;
+    z-index: 99;
+  }
+  .nav-toggle:checked + .nav-toggle-label + ul {
+    display: flex;
+  }
+  .nav-toggle-label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 0.18em;
+    height: 34px;
+    justify-content: center;
+    margin-left: 1rem;
+  }
+  .nav-toggle-label span {
+    display: block;
+    height: 4px;
+    width: 30px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.2s;
+  }
+  .features { flex-direction: column; }
+}
